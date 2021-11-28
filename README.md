@@ -54,7 +54,9 @@ Since this is an interview task, few things are simplified in the code:
     seems to accept reasonable load without failing, 
   - no dependency injection - to minimize JAR footprint and keep the solution minimalistic,
   - traversal runs in parallel and is using standard `ForkJoinPool.common` thread pool which by default has one
-    thread less than machine's vCPU cores; parallelism can be overridden by adjusting system property `java.util.concurrent.ForkJoinPool.common.parallelism`.
+    thread less than machine's vCPU cores; parallelism can be overridden by adjusting system property `java.util.concurrent.ForkJoinPool.common.parallelism`,
+  - implementation is not optimized for speed - e.g. HTML parsing is provided by `Jsoup` which builds full DOM tree for
+    each page.
 
 Also following points are implemented with respect to page traversing and parsing:
 
